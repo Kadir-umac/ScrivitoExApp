@@ -2,12 +2,16 @@ import { groupBy } from 'lodash-es';
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import formatDate from '../../utils/formatDate';
-
+import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
 
 const NewsPreviewList = Scrivito.connect(({ maxItems }) => {
 
     let newsList = Scrivito.getClass('News')
         .all()
+    
+    if (maxItems) {
+        newsList = newsList.take(maxItems)
+    }    
 
     let news = [...newsList]
 
@@ -15,6 +19,14 @@ const NewsPreviewList = Scrivito.connect(({ maxItems }) => {
         const publishedAt = post.get("publishDate");
         return publishedAt && formatDate(publishedAt, "mmmm yyyy");
     });
+
+    if (!news.length) {
+        return (
+          <InPlaceEditingPlaceholder center>
+            There are no news. Create one using the page menu.
+          </InPlaceEditingPlaceholder>
+        );
+      }
 
     return (
         <React.Fragment>

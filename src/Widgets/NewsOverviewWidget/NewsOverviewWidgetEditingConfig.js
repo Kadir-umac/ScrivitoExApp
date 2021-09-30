@@ -7,5 +7,8 @@ Scrivito.provideEditingConfig('NewsOverviewWidget',{
             description: 'max number of news that must be displayed'
         }
     },
+    initialContent: {
+        maxItems: 10,
+    },
     properties: ['maxItems']
 })
