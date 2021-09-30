@@ -3,9 +3,8 @@ import * as Scrivito from "scrivito";
 import TopicList from "../../Components/News/TopicList";
 
 Scrivito.provideComponent("News", ({ page }) => {
-  console.log(page);
-  return (
 
+  return (
     <div className='container'>
       <h1>News Page</h1>
       <div className="row">
@@ -18,7 +17,7 @@ Scrivito.provideComponent("News", ({ page }) => {
       </div>
       <div className="row">
         <div className="col-3 d-none d-lg-block">
-          <TopicList topics={page.get("topics")}  />
+          <TopicList topics={page.get("topics")} />
         </div>
 
         <div className="col-lg-9 col-sm-12">

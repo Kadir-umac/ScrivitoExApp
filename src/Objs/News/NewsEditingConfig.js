@@ -1,7 +1,5 @@
 import * as Scrivito from "scrivito";
-import HeadlineWidget from "../../Widgets/HeadlineWidget/HeadlineWidgetClass";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
-import TextWidget from '../../Widgets/TextWidget/TextWidgetClass';
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,

@@ -22,7 +22,7 @@ Scrivito.provideEditingConfig("NewsPage", {
   initialContent: {
     body: [
       new SectionWidget({
-        content: [new HeadlineWidget({ style: "h1" })],
+        content: [new HeadlineWidget({ style: "h2" })],
       }),
     ],
     ...metadataInitialContent,
