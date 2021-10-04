@@ -92,8 +92,7 @@
       text-align: left;
       position: absolute !important;
       transform: translate(-50%, 20px);
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1),
-        0 -20px 10px rgba(44, 44, 44, 0.04);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1), 0 -20px 10px rgba(44, 44, 44, 0.04);
       padding: 10px;
       font-size: 14px;
 
@@ -145,6 +144,16 @@
         color: #fff;
       }
     }
+    .sub-item {
+      display: none;
+      width: auto;
+      height: 50px !important;
+      background-color: red;
+    }
+
+    :hover ~.sub-item{
+      display: block !important;
+    }
   }
 
   li {
@@ -159,6 +168,7 @@
 }
 
 .navbar {
+  background-color: #333;
   padding: 0;
   min-height: 75px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
@@ -176,6 +186,7 @@
   }
 
   &-nav > li > a {
+    color: #fff !important;
     height: 75px;
     position: relative;
     padding: 25px 15px !important;

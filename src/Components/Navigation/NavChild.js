@@ -71,6 +71,42 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   );
 });
 
+const NewNavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
+  const classNames = ["nav-item"];
+  if (open) {
+    classNames.push("open");
+  }
+
+
+  if (isActive(child)) {
+    classNames.push("active");
+  }
+
+  return (
+    <li className={classNames.join(" ")} {...otherProps}>
+      <Scrivito.LinkTag to={child} className="nav-link">
+        {child.get("title") || "<untitled>"}
+      </Scrivito.LinkTag>
+      {child.children().length !== 0 &&
+        <Scrivito.ChildListTag
+          className="sub-item"
+          parent={child}
+          renderChild={(innerChild) => <SubItem child={innerChild} />}
+        />
+      }
+    </li>
+  );
+});
+
+const SubItem = Scrivito.connect(({ child }) => {
+
+  return (
+      <Scrivito.LinkTag to={child} className="nav-link">
+        {child.get("title") || "<untitled>"}
+      </Scrivito.LinkTag>
+  )
+})
+
 const Dropdown = Scrivito.connect(
   ({ child, open, toggleDropdown, ...otherProps }) => {
     const classNames = ["nav-item"];
@@ -104,7 +140,7 @@ const Dropdown = Scrivito.connect(
         <Scrivito.ChildListTag
           className="dropdown-menu"
           parent={child}
-          renderChild={(innerChild) => <NavSingleChild child={innerChild} />}
+          renderChild={(innerChild) => <NewNavSingleChild child={innerChild} />}
         />
       </li>
     );
