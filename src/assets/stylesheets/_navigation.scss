@@ -53,6 +53,23 @@
   &.navbar-right {
     margin-left: auto;
     margin-right: 45px;
+
+    .menu-subitem {
+      background: #ababac;
+      display: flex;
+      width: 400px;
+
+      .sub-item {
+        display: none;
+        width: auto;
+        height: 50px !important;
+        background-color: red;
+      }
+
+      :hover ~ .sub-item {
+        display: block !important;
+      }
+    }
   }
 
   > li,
@@ -143,16 +160,6 @@
         background: $primary;
         color: #fff;
       }
-    }
-    .sub-item {
-      display: none;
-      width: auto;
-      height: 50px !important;
-      background-color: red;
-    }
-
-    :hover ~.sub-item{
-      display: block !important;
     }
   }
 
@@ -645,6 +652,7 @@
     .nav-item {
       border: 10px solid #fff;
       border-left: 0;
+      background: blue;
 
       &:first-child {
         border-left: 10px solid #fff;

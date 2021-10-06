@@ -83,8 +83,8 @@ const NewNavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   }
 
   return (
-    <li className={classNames.join(" ")} {...otherProps}>
-      <Scrivito.LinkTag to={child} className="nav-link">
+    <li className={`${classNames.join(" ")} menu-subitem`} {...otherProps}>
+       <Scrivito.LinkTag to={child} className="nav-link">
         {child.get("title") || "<untitled>"}
       </Scrivito.LinkTag>
       {child.children().length !== 0 &&
@@ -101,9 +101,11 @@ const NewNavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
 const SubItem = Scrivito.connect(({ child }) => {
 
   return (
+    <div className="">
       <Scrivito.LinkTag to={child} className="nav-link">
-        {child.get("title") || "<untitled>"}
+       {child.get("title") || "<untitled>"}
       </Scrivito.LinkTag>
+    </div>
   )
 })
 
@@ -138,6 +140,7 @@ const Dropdown = Scrivito.connect(
           <i className="fa fa-angle-down" aria-hidden="true" />
         </span>
         <Scrivito.ChildListTag
+          tag="div"
           className="dropdown-menu"
           parent={child}
           renderChild={(innerChild) => <NewNavSingleChild child={innerChild} />}
